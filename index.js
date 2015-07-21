@@ -131,6 +131,8 @@ module.exports=function(string,options){
 				if( options.replace_text
 					&& ( !/^[0-9]+\s*[a-z]+$/i.test(concat_raw[0]) ) //original Number is not stuff like 5GB (i.e number with units
 					&& !_.isNaN(number)//do not replacs with NaN
+					&& !/\./.test(number) //& number is not a decimal
+					&& !romantique.roman.validate(concat_raw.join(' ')) //is not roman number
 				){
 					// console.log(concat_words,concat_raw,word_,number)
 					string=string.replace(concat_raw.join(' '),number);
