@@ -27,6 +27,9 @@ module.exports=function(string,options){
 	var skipwords=['and','of']
 	var stopwords=[]
 
+	var anotated=_.clone(string);
+	var out=_.clone(string);
+
 	var numbers={
 		numerals:[],
 		formatted:[],
@@ -135,7 +138,8 @@ module.exports=function(string,options){
 					&& !romantique.roman.validate(concat_raw.join(' ')) //is not roman number
 				){
 					// console.log(concat_words,concat_raw,word_,number)
-					string=string.replace(concat_raw.join(' '),number);
+					out=out.replace(concat_raw.join(' '),number);
+					anotated=anotated.replace(concat_raw.join(' '),"{NUMBER: "+number+"}");
 				}
 
 				numbers.numerals.push(number);
@@ -160,8 +164,9 @@ module.exports=function(string,options){
 	})
 
 
-	numbers.string.out=string;
-	
+	numbers.string.out=out;
+	numbers.string.anotated=anotated;
+
 	// console.log(concat_words)
 	return numbers;
 }
