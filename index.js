@@ -111,6 +111,7 @@ module.exports=function(string,options){
 			word=word_;
 		}
 		
+		//
 
 		//test for number
 		number= textToNumber(word, options.lang) 
