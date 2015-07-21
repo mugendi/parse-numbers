@@ -128,7 +128,10 @@ module.exports=function(string,options){
 				number= isNumeric(word_) ? numeral().unformat(word_)  //if numeric then do simple parse
 						: textToNumber(word_, options.lang); //else attempt to read number
 
-				if(options.replace_text){
+				if( options.replace_text
+					&& ( !/^[0-9]+\s*[a-z]+$/i.test(concat_raw[0]) ) //original Number is not stuff like 5GB (i.e number with units
+					&& !_.isNaN(number)//do not replacs with NaN
+				){
 					// console.log(concat_words,concat_raw,word_,number)
 					string=string.replace(concat_raw.join(' '),number);
 				}
