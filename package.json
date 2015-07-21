@@ -34,6 +34,6 @@
     "romantique": "^0.1.0",
     "split-words": "^1.0.2",
     "string": "^3.3.0",
-    "to-number": "^1.0.0"
+    "to-number": "^1.0.2"
   }
 }

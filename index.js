@@ -5,8 +5,7 @@ var numeral = require('numeral')
 var romantique = require('romantique');
 var Ordinal = require('ordinal')
 var isNumeric = require("isnumeric")
-var OrdinalWords =require('./data/ordinal-words.json')
-// var num2String=require('number2string')
+var OrdinalWords =require('./data/ordinal-words.json') 
 var splitWords = require('split-words');
 
 module.exports=function(string,options){
@@ -72,13 +71,7 @@ module.exports=function(string,options){
 			//include old number (formatted)
 			if(_.isNumber(word_) && options.include_formatted){
 				numbers.formatted.push(word);
-			}			
-
-			//try to pass measures
-			if(QtyPattern.test(word)){
-				var qty = Qty(word); 
-				measures=_.union(measures,qty.toAll());
-			}	
+			}		
 
 			word=word_;
 		}
@@ -141,6 +134,8 @@ module.exports=function(string,options){
 				}
 
 				numbers.numerals.push(number);
+
+				// console.log(concat_words,concat_raw,word_,number)
 
 				//if we need ordinals
 				if(
