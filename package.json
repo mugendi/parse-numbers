@@ -15,7 +15,8 @@
     "numerals",
     "numbers",
     "extract",
-    "nlp"
+    "nlp",
+    "string"
   ],
   "author": "Anthony Mugendi (ngurumugz@gmail.com)",
   "license": "MIT",
