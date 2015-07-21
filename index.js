@@ -27,7 +27,7 @@ module.exports=function(string,options){
 	var skipwords=['and','of']
 	var stopwords=[]
 
-	var anotated=_.clone(string);
+	var annotated=_.clone(string);
 	var out=_.clone(string);
 
 	var numbers={
@@ -139,7 +139,7 @@ module.exports=function(string,options){
 				){
 					// console.log(concat_words,concat_raw,word_,number)
 					out=out.replace(concat_raw.join(' '),number);
-					anotated=anotated.replace(concat_raw.join(' '),"{NUMBER: "+number+"}");
+					annotated=annotated.replace(concat_raw.join(' '),"{NUMBER: "+number+"}");
 				}
 
 				numbers.numerals.push(number);
@@ -165,7 +165,7 @@ module.exports=function(string,options){
 
 
 	numbers.string.out=out;
-	numbers.string.anotated=anotated;
+	numbers.string.annotated=annotated;
 
 	// console.log(concat_words)
 	return numbers;
