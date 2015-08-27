@@ -142,7 +142,10 @@ module.exports=function(string,options){
 					annotated=annotated.replace(concat_raw.join(' '),"{NUMBER: "+number+"}");
 				}
 
-				numbers.numerals.push(number);
+				if(number){
+					numbers.numerals.push(number);
+				}
+				
 
 				// console.log(concat_words,concat_raw,word_,number)
 
@@ -168,5 +171,5 @@ module.exports=function(string,options){
 	numbers.string.annotated=annotated;
 
 	// console.log(concat_words)
-	return _.compact(numbers);
+	return numbers;
 }
