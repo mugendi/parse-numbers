@@ -168,5 +168,5 @@ module.exports=function(string,options){
 	numbers.string.annotated=annotated;
 
 	// console.log(concat_words)
-	return numbers;
+	return _.compact(numbers);
 }
